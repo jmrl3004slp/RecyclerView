@@ -18,6 +18,6 @@ public class MainActivity extends AppCompatActivity implements RestauranteFragme
 
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
-        
+
     }
 }
