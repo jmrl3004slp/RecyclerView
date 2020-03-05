@@ -68,7 +68,7 @@ public class RestauranteFragment extends Fragment {
 
             restauranteList = new ArrayList<>();
             restauranteList.add();
-            
+
             adapterRestaurante = new MyRestauranteRecyclerViewAdapter(DummyContent.ITEMS, mListener);
             recyclerView.setAdapter(adapterRestaurante);
         }
