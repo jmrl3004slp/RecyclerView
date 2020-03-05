@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.itslp.recyclerview.dummy.DummyContent;
 import com.itslp.recyclerview.dummy.DummyContent.DummyItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,6 +25,9 @@ import java.util.List;
  * interface.
  */
 public class RestauranteFragment extends Fragment {
+    RecyclerView recyclerView;
+    MyRestauranteRecyclerViewAdapter adapterRestaurante;
+    List<Restaurante> restauranteList;
 
     // TODO: Customize parameters
     private int mColumnCount = 1;
@@ -51,13 +55,22 @@ public class RestauranteFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            recyclerView = (RecyclerView) view; // Se hace global la variable
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyRestauranteRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            /**
+             * Se va a utiliza una variable global llamada adapterRestaurante de tipo MyRestauranteRecyclerViewAdapter
+             * y vamos a ser la instanciar
+             */
+
+            restauranteList = new ArrayList<>();
+            restauranteList.add();
+            
+            adapterRestaurante = new MyRestauranteRecyclerViewAdapter(DummyContent.ITEMS, mListener);
+            recyclerView.setAdapter(adapterRestaurante);
         }
         return view;
     }
