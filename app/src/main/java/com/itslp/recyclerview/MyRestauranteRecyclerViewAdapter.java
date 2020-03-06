@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.itslp.recyclerview.RestauranteFragment.OnListFragmentInteractionListener;
@@ -37,8 +39,9 @@ public class MyRestauranteRecyclerViewAdapter extends RecyclerView.Adapter<MyRes
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.textViewNombre.setText(holder.mItem.getNombre());
+        holder.textViewDireccion.setText(holder.mItem.getDireccion());
+        holder.ratingBarValoracion.setRating(holder.mItem.getValoracion());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,20 +62,25 @@ public class MyRestauranteRecyclerViewAdapter extends RecyclerView.Adapter<MyRes
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
+        public final TextView textViewNombre;
+        public final TextView textViewDireccion;
+        public final ImageView imageViewFoto;
+        public final RatingBar ratingBarValoracion;
+        public Restaurante mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+
+            this.textViewNombre = (TextView) view.findViewById(R.id.txNombre);
+            this.textViewDireccion = (TextView) view.findViewById(R.id.tvDireccion);
+            this.ratingBarValoracion = (RatingBar) view.findViewById(R.id.ratingBarValoracion);
+            this.imageViewFoto = (ImageView) view.findViewById(R.id.imageViewFoto);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + "'";
         }
     }
 }
