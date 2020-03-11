@@ -10,10 +10,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.itslp.recyclerview.RestauranteFragment.OnListFragmentInteractionListener;
-import com.itslp.recyclerview.dummy.DummyContent.DummyItem;
 
 import java.util.List;
-
+import com.squareup.picasso.*;
 /**
  * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
@@ -21,10 +20,10 @@ import java.util.List;
  */
 public class MyRestauranteRecyclerViewAdapter extends RecyclerView.Adapter<MyRestauranteRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Restaurante> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyRestauranteRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyRestauranteRecyclerViewAdapter(List<Restaurante> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -42,6 +41,8 @@ public class MyRestauranteRecyclerViewAdapter extends RecyclerView.Adapter<MyRes
         holder.textViewNombre.setText(holder.mItem.getNombre());
         holder.textViewDireccion.setText(holder.mItem.getDireccion());
         holder.ratingBarValoracion.setRating(holder.mItem.getValoracion());
+
+        Picasso.get().load(holder.mItem.getUrlFoto()).resize(400, 150).centerCrop().into(holder.imageViewFoto);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

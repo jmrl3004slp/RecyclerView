@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.itslp.recyclerview.dummy.DummyContent;
-
 public class MainActivity extends AppCompatActivity implements RestauranteFragment.OnListFragmentInteractionListener {
 
     @Override
@@ -17,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements RestauranteFragme
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(Restaurante item) {
 
     }
 }
