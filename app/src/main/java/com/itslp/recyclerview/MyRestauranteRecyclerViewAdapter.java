@@ -14,7 +14,7 @@ import com.itslp.recyclerview.RestauranteFragment.OnListFragmentInteractionListe
 import java.util.List;
 import com.squareup.picasso.*;
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Restaurante} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
@@ -30,8 +30,7 @@ public class MyRestauranteRecyclerViewAdapter extends RecyclerView.Adapter<MyRes
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_restaurante, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_restaurante, parent, false);
         return new ViewHolder(view);
     }
 
